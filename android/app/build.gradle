@@ -117,6 +117,14 @@ android {
             crunchPngs (findProperty('android.enablePngCrunchInReleaseBuilds')?.toBoolean() ?: true)
         }
     }
+    splits {
+        abi {
+            reset()
+            enable project.hasProperty("EXPO_ANDROID_APK_SPLIT_BY_ABI") ? project.EXPO_ANDROID_APK_SPLIT_BY_ABI.toBoolean() : false
+            universalApk false
+            include "arm64-v8a", "armeabi-v7a", "x86", "x86_64"
+        }
+    }
     packagingOptions {
         jniLibs {
             useLegacyPackaging (findProperty('expo.useLegacyPackaging')?.toBoolean() ?: false)

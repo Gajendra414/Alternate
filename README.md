@@ -1,28 +1,37 @@
-# Alternate - Contact Management App
+# Alternate - Local Caller ID Detector
 
-A modern React Native contact management application built with Expo, featuring caller ID functionality and country-specific phone number handling.
+A privacy-focused React Native app that helps you identify unknown callers without cluttering your device's main contact list. Perfect for temporary number storage when you need to know who's calling but don't want the number to appear in WhatsApp, Telegram, or other messaging apps.
 
 ## Features
 
-- **Contact Management**: Add, edit, and delete contacts with ease
+- **Local Caller ID Detection**: Identify incoming calls using your private database
+- **Temporary Number Storage**: Save numbers locally without affecting your main contacts
+- **Privacy Protection**: Numbers won't appear in WhatsApp, Telegram, or other messaging apps
 - **Phone Number Validation**: Smart phone number input with country selection
-- **Caller ID Module**: Custom native module for caller identification
+- **Custom Native Module**: Built-in caller ID functionality using Android's native capabilities
 - **Country Selector**: Beautiful bottom sheet country picker with search
 - **Material Design**: Modern UI following Material Design 3 principles
-- **Performance Optimized**: Efficient list rendering and state management
+- **Offline Storage**: All data stored locally using Android's native SQLite database
+
+## Use Case
+
+When you receive calls from unknown numbers but don't want to save them to your main contact list:
+
+- **Delivery drivers** - Know who's calling without adding to contacts
+- **Service providers** - Temporary contractors, repair services, etc.
+- **Business contacts** - People you interact with briefly
+- **Privacy protection** - Keep your main contact list clean while still identifying callers
 
 ## Tech Stack
 
 - **React Native** with **Expo**
 - **TypeScript** for type safety
 - **React Native Paper** for Material Design components
-- **MMKV** for fast storage
-- **Bottom Sheet** for smooth interactions
-- **Custom Native Modules** for advanced functionality
+- **Room** for local data storage
 
 ## Screenshots
 
-*Add screenshots of your app here*
+_Add screenshots of your app here_
 
 ## Installation
 
@@ -37,17 +46,20 @@ A modern React Native contact management application built with Expo, featuring 
 ### Setup
 
 1. Clone the repository:
+
 ```bash
-git clone https://github.com/yourusername/alternate.git
-cd alternate
+git clone https://github.com/BioHazard786/Alternate.git
+cd Alternate
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Start the development server:
+
 ```bash
 npx expo start
 ```
@@ -65,16 +77,19 @@ npx expo run:android
 ### Production Build with EAS
 
 1. Install EAS CLI:
+
 ```bash
-npm install -g @expo/eas-cli
+npm install -g eas-cli
 ```
 
 2. Configure EAS:
+
 ```bash
 npx eas build:configure
 ```
 
 3. Build for Android:
+
 ```bash
 npx eas build --platform android
 ```
@@ -88,10 +103,25 @@ npx eas build --platform android
 ├── hooks/               # Custom hooks
 ├── lib/                 # Utility functions and types
 ├── modules/             # Custom native modules
-│   └── caller-id/       # Caller ID native module
+│   └── caller-id/       # Caller ID native module with SQLite integration
 ├── store/               # State management
 └── assets/              # Images and other assets
 ```
+
+## How It Works
+
+1. **Add Numbers Locally**: Save phone numbers with names in your private database
+2. **Caller ID Detection**: When calls come in, the app checks against your local database
+3. **Privacy Maintained**: Numbers remain completely separate from your device's contact list
+4. **No Sync Issues**: Won't interfere with messaging apps or cloud contact syncing
+
+## Benefits
+
+- **Clean Contact List**: Keep your main contacts organized
+- **Privacy Control**: Numbers stay private to this app only
+- **No Messaging App Clutter**: Saved numbers won't appear in WhatsApp, Telegram, etc.
+- **Temporary Storage**: Perfect for short-term contact needs
+- **Offline Functionality**: Works completely offline with local SQLite storage
 
 ## Contributing
 
@@ -107,6 +137,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-Your Name - your.email@example.com
+Your Name - Mohd Zaid
 
-Project Link: [https://github.com/yourusername/alternate](https://github.com/yourusername/alternate)
+Project Link: [https://github.com/BioHazard786/Alternate](https://github.com/BioHazard786/Alternate)
+
+---
+
+_Keep your contact list clean while never missing an important call again!_

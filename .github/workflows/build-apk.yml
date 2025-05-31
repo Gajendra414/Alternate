@@ -1,4 +1,4 @@
-name: Build and Release APK
+name: Build and Release Multi-Architecture APKs
 
 on:
   push:
@@ -12,8 +12,11 @@ on:
         default: 'v1.0.0'
 
 jobs:
-  build:
+  build-multi-arch:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        architecture: [armv7, arm64]
     
     steps:
     - name: Checkout code
@@ -37,19 +40,49 @@ jobs:
     - name: Setup EAS
       run: npm install -g @expo/eas-cli
       
-    - name: Build APK
-      run: eas build --platform android --non-interactive
+    - name: Build APK for ${{ matrix.architecture }}
+      run: eas build --platform android --profile production-${{ matrix.architecture }} --non-interactive --wait
       env:
         EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
         
-    - name: Download APK
+    - name: Download APK for ${{ matrix.architecture }}
       run: |
-        # Get the latest build URL
+        # Get the latest build URL for this architecture
         BUILD_URL=$(eas build:list --platform=android --json --non-interactive | jq -r '.[0].artifacts.buildUrl')
-        echo "Build URL: $BUILD_URL"
+        echo "Build URL for ${{ matrix.architecture }}: $BUILD_URL"
         
-        # Download the APK
-        curl -L -o "alternate-${{ github.event.inputs.version || github.ref_name }}.apk" "$BUILD_URL"
+        # Download the APK with architecture-specific name
+        curl -L -o "alternate-${{ github.event.inputs.version || github.ref_name }}-${{ matrix.architecture }}.apk" "$BUILD_URL"
+        
+    - name: Upload APK as artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: apk-${{ matrix.architecture }}
+        path: alternate-${{ github.event.inputs.version || github.ref_name }}-${{ matrix.architecture }}.apk
+        retention-days: 30
+
+  create-release:
+    needs: build-multi-arch
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Download all APK artifacts
+      uses: actions/download-artifact@v4
+      with:
+        path: ./apks
+        
+    - name: List downloaded files
+      run: |
+        echo "Downloaded APK files:"
+        find ./apks -name "*.apk" -type f
+        
+    - name: Move APKs to root directory
+      run: |
+        find ./apks -name "*.apk" -type f -exec mv {} ./ \;
+        ls -la *.apk
         
     - name: Create Release
       uses: softprops/action-gh-release@v1
@@ -59,15 +92,20 @@ jobs:
         draft: false
         prerelease: false
         files: |
-          alternate-${{ github.event.inputs.version || github.ref_name }}.apk
+          *.apk
         body: |
           ## What's New
           
           - Add your release notes here
           
+          ## Available Downloads
+          
+          - **ARM64 (arm64-v8a)**: For most modern Android devices (recommended)
+          - **ARMv7 (armeabi-v7a)**: For older Android devices
+          
           ## Installation
           
-          1. Download the APK file below
+          1. Download the appropriate APK file for your device architecture
           2. Enable "Install from unknown sources" in your Android settings
           3. Install the APK
           
