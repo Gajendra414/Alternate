@@ -39,4 +39,14 @@ yarn-error.*
 # caller-id module build
 modules/caller-id/android/build/
 
+# APK files (keep generated APKs out of source control)
+*.apk
+*.aab
+
+# Android build files
+android/app/build/
+android/build/
+android/.gradle/
+android/local.properties
+
 app-example

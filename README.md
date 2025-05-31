@@ -1,50 +1,112 @@
-# Welcome to your Expo app 👋
+# Alternate - Contact Management App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A modern React Native contact management application built with Expo, featuring caller ID functionality and country-specific phone number handling.
 
-## Get started
+## Features
 
-1. Install dependencies
+- **Contact Management**: Add, edit, and delete contacts with ease
+- **Phone Number Validation**: Smart phone number input with country selection
+- **Caller ID Module**: Custom native module for caller identification
+- **Country Selector**: Beautiful bottom sheet country picker with search
+- **Material Design**: Modern UI following Material Design 3 principles
+- **Performance Optimized**: Efficient list rendering and state management
 
-   ```bash
-   npm install
-   ```
+## Tech Stack
 
-2. Start the app
+- **React Native** with **Expo**
+- **TypeScript** for type safety
+- **React Native Paper** for Material Design components
+- **MMKV** for fast storage
+- **Bottom Sheet** for smooth interactions
+- **Custom Native Modules** for advanced functionality
 
-   ```bash
-   npx expo start
-   ```
+## Screenshots
 
-In the output, you'll find options to open the app in a
+*Add screenshots of your app here*
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Installation
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+### Prerequisites
 
-## Get a fresh project
+- Node.js (v18 or later)
+- npm or yarn
+- Expo CLI
+- Android Studio (for Android development)
+- Xcode (for iOS development, macOS only)
 
-When you're ready, run:
+### Setup
 
+1. Clone the repository:
 ```bash
-npm run reset-project
+git clone https://github.com/yourusername/alternate.git
+cd alternate
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+2. Install dependencies:
+```bash
+npm install
+```
 
-## Learn more
+3. Start the development server:
+```bash
+npx expo start
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+## Building APK
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### Development Build
 
-## Join the community
+To build a development APK:
 
-Join our community of developers creating universal apps.
+```bash
+npx expo run:android
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+### Production Build with EAS
+
+1. Install EAS CLI:
+```bash
+npm install -g @expo/eas-cli
+```
+
+2. Configure EAS:
+```bash
+npx eas build:configure
+```
+
+3. Build for Android:
+```bash
+npx eas build --platform android
+```
+
+## Project Structure
+
+```
+├── app/                    # Main app screens
+├── components/            # Reusable components
+├── constants/            # App constants
+├── hooks/               # Custom hooks
+├── lib/                 # Utility functions and types
+├── modules/             # Custom native modules
+│   └── caller-id/       # Caller ID native module
+├── store/               # State management
+└── assets/              # Images and other assets
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+Your Name - your.email@example.com
+
+Project Link: [https://github.com/yourusername/alternate](https://github.com/yourusername/alternate)

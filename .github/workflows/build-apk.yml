@@ -1,0 +1,79 @@
+name: Build and Release APK
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version tag (e.g., v1.0.0)'
+        required: true
+        default: 'v1.0.0'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Setup Expo
+      uses: expo/expo-github-action@v8
+      with:
+        expo-version: latest
+        token: ${{ secrets.EXPO_TOKEN }}
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Setup EAS
+      run: npm install -g @expo/eas-cli
+      
+    - name: Build APK
+      run: eas build --platform android --non-interactive
+      env:
+        EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+        
+    - name: Download APK
+      run: |
+        # Get the latest build URL
+        BUILD_URL=$(eas build:list --platform=android --json --non-interactive | jq -r '.[0].artifacts.buildUrl')
+        echo "Build URL: $BUILD_URL"
+        
+        # Download the APK
+        curl -L -o "alternate-${{ github.event.inputs.version || github.ref_name }}.apk" "$BUILD_URL"
+        
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: ${{ github.event.inputs.version || github.ref_name }}
+        name: Release ${{ github.event.inputs.version || github.ref_name }}
+        draft: false
+        prerelease: false
+        files: |
+          alternate-${{ github.event.inputs.version || github.ref_name }}.apk
+        body: |
+          ## What's New
+          
+          - Add your release notes here
+          
+          ## Installation
+          
+          1. Download the APK file below
+          2. Enable "Install from unknown sources" in your Android settings
+          3. Install the APK
+          
+          ## System Requirements
+          
+          - Android 6.0 (API level 23) or higher
+          
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
