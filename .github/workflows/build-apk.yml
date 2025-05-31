@@ -38,7 +38,7 @@ jobs:
       run: npm ci
       
     - name: Setup EAS
-      run: npm install -g @expo/eas-cli
+      run: npm install -g eas-cli
       
     - name: Build APK for ${{ matrix.architecture }}
       run: eas build --platform android --profile production-${{ matrix.architecture }} --non-interactive --wait
