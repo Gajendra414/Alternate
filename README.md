@@ -1,3 +1,24 @@
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+
+<div align="center">
+<a href="https://github.com/BioHazard786/Alternate">
+    <img src="assets/icon/ios-tinted.png" alt="Logo" width="100" height="100" style="border-radius:15px">
+</a>
+<br />
+<br />
+<a href=https://github.com/BioHazard786/Alternate/releases">Download</a>
+    ·
+    <a href="https://github.com/BioHazard786/Alternate/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/BioHazard786/Alternate/issues">Request Feature</a>
+    <br />
+    <br />
+</div>
+
 # Alternate - Local Caller ID Detector
 
 A privacy-focused React Native app that helps you identify unknown callers without cluttering your device's main contact list. Perfect for temporary number storage when you need to know who's calling but don't want the number to appear in WhatsApp, Telegram, or other messaging apps.
@@ -137,10 +158,28 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-Your Name - Mohd Zaid
+Mohd Zaid - [Telegram](https://t.me/LuLu786) - bzatch70@gmail.com
 
 Project Link: [https://github.com/BioHazard786/Alternate](https://github.com/BioHazard786/Alternate)
+
+## Acknowledgments
+
+- Thanks To dmkvsk for native module inspiration [Repo](https://github.com/dmkvsk/react-native-detect-caller-id)
 
 ---
 
 _Keep your contact list clean while never missing an important call again!_
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
+[contributors-shield]: https://img.shields.io/github/contributors/BioHazard786/Alternate.svg?style=for-the-badge
+[contributors-url]: https://github.com/BioHazard786/Alternate/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/BioHazard786/Alternate.svg?style=for-the-badge
+[forks-url]: https://github.com/BioHazard786/Alternate/network/members
+[stars-shield]: https://img.shields.io/github/stars/BioHazard786/Alternate.svg?style=for-the-badge
+[stars-url]: https://github.com/BioHazard786/Alternate/stargazers
+[issues-shield]: https://img.shields.io/github/issues/BioHazard786/Alternate.svg?style=for-the-badge
+[issues-url]: https://github.com/BioHazard786/Alternate/issues
+[license-shield]: https://img.shields.io/github/license/BioHazard786/Alternate.svg?style=for-the-badge
+[license-url]: https://github.com/BioHazard786/Alternate/blob/master/LICENSE
