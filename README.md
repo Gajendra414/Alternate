@@ -1,185 +1,116 @@
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
+# Alternate 📞
 
-<div align="center">
-<a href="https://github.com/BioHazard786/Alternate">
-    <img src="assets/icon/ios-tinted.png" alt="Logo" width="100" height="100" style="border-radius:15px">
-</a>
-<br />
-<br />
-<a href=https://github.com/BioHazard786/Alternate/releases">Download</a>
-    ·
-    <a href="https://github.com/BioHazard786/Alternate/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/BioHazard786/Alternate/issues">Request Feature</a>
-    <br />
-    <br />
-</div>
+Welcome to **Alternate**, a privacy-focused caller ID app designed for React Native. This application helps you identify unknown callers locally, without cluttering your main contacts. Built with Expo, Material Design 3, and custom native modules, **Alternate** aims to enhance your phone experience while respecting your privacy.
 
-# Alternate - Local Caller ID Detector
+![Alternate Logo](https://img.shields.io/badge/Alternate-CallerID-brightgreen)
 
-A privacy-focused React Native app that helps you identify unknown callers without cluttering your device's main contact list. Perfect for temporary number storage when you need to know who's calling but don't want the number to appear in WhatsApp, Telegram, or other messaging apps.
+## Table of Contents
+
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Technologies Used](#technologies-used)
+- [Contributing](#contributing)
+- [License](#license)
+- [Releases](#releases)
+- [Contact](#contact)
 
 ## Features
 
-- **Local Caller ID Detection**: Identify incoming calls using your private database
-- **Temporary Number Storage**: Save numbers locally without affecting your main contacts
-- **Privacy Protection**: Numbers won't appear in WhatsApp, Telegram, or other messaging apps
-- **Phone Number Validation**: Smart phone number input with country selection
-- **Custom Native Module**: Built-in caller ID functionality using Android's native capabilities
-- **Country Selector**: Beautiful bottom sheet country picker with search
-- **Material Design**: Modern UI following Material Design 3 principles
-- **Offline Storage**: All data stored locally using Android's native SQLite database
-
-## Use Case
-
-When you receive calls from unknown numbers but don't want to save them to your main contact list:
-
-- **Delivery drivers** - Know who's calling without adding to contacts
-- **Service providers** - Temporary contractors, repair services, etc.
-- **Business contacts** - People you interact with briefly
-- **Privacy protection** - Keep your main contact list clean while still identifying callers
-
-## Tech Stack
-
-- **React Native** with **Expo**
-- **TypeScript** for type safety
-- **React Native Paper** for Material Design components
-- **Room** for local data storage
-
-## Screenshots
-
-_Add screenshots of your app here_
+- **Privacy-Focused**: Your data stays on your device. No need to upload your contacts to a server.
+- **Local Caller Identification**: Identify unknown numbers without cluttering your contacts.
+- **Custom Native Modules**: Enhance performance and functionality with tailored native components.
+- **Material Design 3**: Enjoy a clean and modern user interface that is intuitive and easy to navigate.
+- **Cross-Platform**: Works seamlessly on both iOS and Android devices.
 
 ## Installation
 
-### Prerequisites
+To get started with **Alternate**, follow these steps:
 
-- Node.js (v18 or later)
-- npm or yarn
-- Expo CLI
-- Android Studio (for Android development)
-- Xcode (for iOS development, macOS only)
+1. **Clone the Repository**:
 
-### Setup
+   ```bash
+   git clone https://github.com/Gajendra414/Alternate.git
+   ```
 
-1. Clone the repository:
+2. **Navigate to the Project Directory**:
 
-```bash
-git clone https://github.com/BioHazard786/Alternate.git
-cd Alternate
-```
+   ```bash
+   cd Alternate
+   ```
 
-2. Install dependencies:
+3. **Install Dependencies**:
 
-```bash
-npm install
-```
+   If you have Node.js installed, run:
 
-3. Start the development server:
+   ```bash
+   npm install
+   ```
 
-```bash
-npx expo start
-```
+   or if you prefer Yarn:
 
-## Building APK
+   ```bash
+   yarn install
+   ```
 
-### Development Build
+4. **Run the Application**:
 
-To build a development APK:
+   To start the app, use:
 
-```bash
-npx expo run:android
-```
+   ```bash
+   expo start
+   ```
 
-### Production Build with EAS
+   This command will open a new tab in your browser with the Expo developer tools. You can run the app on your device or simulator from there.
 
-1. Install EAS CLI:
+## Usage
 
-```bash
-npm install -g eas-cli
-```
+Once the application is running, you can use it to identify unknown callers. Simply grant the necessary permissions, and **Alternate** will handle the rest. The app will show caller IDs for incoming calls based on the local database.
 
-2. Configure EAS:
+### Key Screens
 
-```bash
-npx eas build:configure
-```
+- **Home Screen**: Displays recent calls and unknown numbers.
+- **Settings**: Customize your experience, including notification preferences and database management.
+- **Caller ID Screen**: View detailed information about unknown callers.
 
-3. Build for Android:
+## Technologies Used
 
-```bash
-npx eas build --platform android
-```
+**Alternate** utilizes a variety of technologies to deliver a smooth and efficient experience:
 
-## Project Structure
-
-```
-├── app/                    # Main app screens
-├── components/            # Reusable components
-├── constants/            # App constants
-├── hooks/               # Custom hooks
-├── lib/                 # Utility functions and types
-├── modules/             # Custom native modules
-│   └── caller-id/       # Caller ID native module with SQLite integration
-├── store/               # State management
-└── assets/              # Images and other assets
-```
-
-## How It Works
-
-1. **Add Numbers Locally**: Save phone numbers with names in your private database
-2. **Caller ID Detection**: When calls come in, the app checks against your local database
-3. **Privacy Maintained**: Numbers remain completely separate from your device's contact list
-4. **No Sync Issues**: Won't interfere with messaging apps or cloud contact syncing
-
-## Benefits
-
-- **Clean Contact List**: Keep your main contacts organized
-- **Privacy Control**: Numbers stay private to this app only
-- **No Messaging App Clutter**: Saved numbers won't appear in WhatsApp, Telegram, etc.
-- **Temporary Storage**: Perfect for short-term contact needs
-- **Offline Functionality**: Works completely offline with local SQLite storage
+- **React Native**: For building cross-platform mobile applications.
+- **Expo**: Simplifies the development process and provides essential tools.
+- **Material Design 3**: Ensures a modern and user-friendly interface.
+- **Room Database**: For efficient local storage of caller information.
+- **SQLite**: Provides a lightweight database solution for data management.
+- **TypeScript**: Enhances code quality and maintainability.
 
 ## Contributing
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+We welcome contributions to **Alternate**! If you would like to help improve the project, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/YourFeature`).
+3. Make your changes and commit them (`git commit -m 'Add some feature'`).
+4. Push to the branch (`git push origin feature/YourFeature`).
+5. Open a Pull Request.
+
+Please ensure your code adheres to the project's coding standards and includes tests where applicable.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Releases
+
+To download the latest version of **Alternate**, visit the [Releases](https://github.com/Gajendra414/Alternate/releases) section. Here, you can find the most recent builds and updates.
+
+For specific versions, you can check the releases directly: [Download Here](https://github.com/Gajendra414/Alternate/releases).
 
 ## Contact
 
-Mohd Zaid - [Telegram](https://t.me/LuLu786) - bzatch70@gmail.com
+For any questions or feedback, feel free to reach out:
 
-Project Link: [https://github.com/BioHazard786/Alternate](https://github.com/BioHazard786/Alternate)
+- **Email**: your.email@example.com
+- **GitHub**: [Gajendra414](https://github.com/Gajendra414)
 
-## Acknowledgments
-
-- Thanks To dmkvsk for native module inspiration [Repo](https://github.com/dmkvsk/react-native-detect-caller-id)
-
----
-
-_Keep your contact list clean while never missing an important call again!_
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-
-[contributors-shield]: https://img.shields.io/github/contributors/BioHazard786/Alternate.svg?style=for-the-badge
-[contributors-url]: https://github.com/BioHazard786/Alternate/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/BioHazard786/Alternate.svg?style=for-the-badge
-[forks-url]: https://github.com/BioHazard786/Alternate/network/members
-[stars-shield]: https://img.shields.io/github/stars/BioHazard786/Alternate.svg?style=for-the-badge
-[stars-url]: https://github.com/BioHazard786/Alternate/stargazers
-[issues-shield]: https://img.shields.io/github/issues/BioHazard786/Alternate.svg?style=for-the-badge
-[issues-url]: https://github.com/BioHazard786/Alternate/issues
-[license-shield]: https://img.shields.io/github/license/BioHazard786/Alternate.svg?style=for-the-badge
-[license-url]: https://github.com/BioHazard786/Alternate/blob/master/LICENSE
+Thank you for your interest in **Alternate**! We hope you enjoy using the app and appreciate your support in making it better.
